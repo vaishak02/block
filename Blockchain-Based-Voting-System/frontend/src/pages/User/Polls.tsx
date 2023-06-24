@@ -58,6 +58,7 @@ const User = () => {
         {voteState === "running" ? <Running /> : <Finished />}
 
         <Chart
+          showVotes={false}
           enableVote={votable === "not-voted"}
           userId={authContext.id}
           userName={authContext.name}

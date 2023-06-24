@@ -6,6 +6,7 @@ interface ChartProps {
   enableVote?: boolean;
   userId?: number;
   userName?: string;
+  showVotes?:boolean;
 }
 
 const Chart = (props: ChartProps) => {
@@ -69,12 +70,20 @@ const Chart = (props: ChartProps) => {
     const total = getTotal();
 
     for (const name in votes) {
-      const count = votes[name];
+      // if(showVotes == true)
+      // { 
+    //     count = votes[name]  {"sdfhnlh": 1, "sdfhgsdf", 2}
+     //  } 
+     // else
+     // {
+      //    count = total
+     //}
+      const count = props.showVotes ? votes[name] : total;
       bars.push(
         <div key={name} className="bar-wrapper">
           <div
             style={{
-              height: count != 0 ? `${(count * 100) / total}%` : "auto",
+              height: count !== 0 ? `${(count * 100) / total}%` : "auto",
               border: "2px solid #4daaa7",
               display: "flex",
               flexDirection: "column",
@@ -86,7 +95,7 @@ const Chart = (props: ChartProps) => {
               paddingTop: 10,
             }}
           >
-            {votes[name]}
+            {props.showVotes ? votes[name] : "--"}
           </div>
         </div>
       );

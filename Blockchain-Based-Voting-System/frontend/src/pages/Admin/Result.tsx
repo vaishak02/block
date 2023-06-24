@@ -26,7 +26,7 @@ const Result = () => {
   return (
     <Panel name={data.name} description={data.description}>
       <>
-        <Chart votes={data.votes} />
+        <Chart votes={data.votes} showVotes={true}/>
 
         <button
           onClick={resetElection}
