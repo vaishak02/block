@@ -8,7 +8,7 @@ import axios from "../axios";
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required(),
   email: Yup.string().email("Invalid email").required("Required"),
-  citizenshipNumber: Yup.string().min(4).required(),
+  citizenshipNumber: Yup.string().min(10).required(),
   password: Yup.string().min(3).required("Required"),
   confirm: Yup.string()
     .oneOf([Yup.ref("password")], "must be same as password")
@@ -72,7 +72,7 @@ const Signup = (): JSX.Element => {
                   <input
                     id="citizenshipNumber"
                     type="text"
-                    placeholder="Citizenship Number"
+                    placeholder="Aadhar Number"
                     {...getFieldProps("citizenshipNumber")}
                   />
                   <div className="form-error-text">
