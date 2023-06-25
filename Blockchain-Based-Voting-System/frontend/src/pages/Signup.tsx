@@ -128,7 +128,7 @@ const Signup = (): JSX.Element => {
           </Formik>
 
           <hr />
-          <div className="form-info-text">Already have an account?</div>
+          {/* <div className="form-info-text">Already have an account?</div> */}
 
           <button
             onClick={() => navigate("/login")}

@@ -77,7 +77,7 @@ const Login = (props: RouteProps): JSX.Element => {
             )}
           </Formik>
 
-          <div className="form-info-text">Forgot Password?</div>
+          {/* <div className="form-info-text">Forgot Password?</div> */}
 
           <hr />
 
