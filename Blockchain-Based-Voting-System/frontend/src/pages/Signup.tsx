@@ -8,7 +8,7 @@ import axios from "../axios";
 const schema = Yup.object().shape({
   name: Yup.string().min(3).required(),
   email: Yup.string().email("Invalid email").required("Required"),
-  aadhaarNumber: Yup.string().min(10).required(),
+  citizenshipNumber: Yup.string().min(10).required(),
   password: Yup.string().min(3).required("Required"),
   confirm: Yup.string()
     .oneOf([Yup.ref("password")], "must be same as password")
@@ -29,17 +29,17 @@ const Signup = (): JSX.Element => {
             initialValues={{
               name: "",
               email: "",
-              aadhaarNumber: "",
+              citizenshipNumber: "",
               password: "",
               confirm: "",
             }}
             validationSchema={schema}
-            onSubmit={({ name, email, aadhaarNumber, password }) => {
+            onSubmit={({ name, email, citizenshipNumber, password }) => {
               axios
                 .post("/auth/signup", {
                   name,
                   email,
-                  aadhaarNumber,
+                  citizenshipNumber,
                   password,
                 })
                 .then((res) => {
@@ -73,11 +73,11 @@ const Signup = (): JSX.Element => {
                     id="aadhaarNumber"
                     type="text"
                     placeholder="Aadhaar Number"
-                    {...getFieldProps("aadhaarNumber")}
+                    {...getFieldProps("citizenshipNumber")}
                   />
                   <div className="form-error-text">
-                    {touched.aadhaarNumber && errors.aadhaarNumber
-                      ? errors.aadhaarNumber
+                    {touched.citizenshipNumber && errors.citizenshipNumber
+                      ? errors.citizenshipNumber
                       : null}
                   </div>
                 </div>
